@@ -19,6 +19,6 @@ model Post {
 model ProfileSection {
   id        Int    @id @default(autoincrement())
   key       String @unique
-  content   String @db.Text
+  content   String
   sortOrder Int    @default(0)
 }

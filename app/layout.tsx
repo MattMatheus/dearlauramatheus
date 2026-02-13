@@ -39,9 +39,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   Admin
                 </Link>
               </nav>
-              <Link href="/logout" className="myspace-tab-link">
-                Sign Out
-              </Link>
+              <form action="/logout" method="post">
+                <button
+                  type="submit"
+                  className="myspace-tab-link border-0 bg-transparent p-0"
+                >
+                  Sign Out
+                </button>
+              </form>
             </div>
           </div>
         </header>

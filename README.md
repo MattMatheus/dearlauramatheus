@@ -72,7 +72,7 @@ Open `http://localhost:3000/login` and sign in with `SITE_PASSWORD`.
   - `httpOnly: true`
   - `sameSite: "lax"`
   - `secure: true` in production
-- `GET /logout` clears cookie and redirects to `/login`
+- `POST /logout` clears cookie and redirects to `/login` (`GET /logout` redirects to `/`)
 
 ## Deploy (Vercel + Neon)
 

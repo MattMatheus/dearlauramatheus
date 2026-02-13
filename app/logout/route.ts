@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { SESSION_COOKIE_NAME } from "@/lib/auth";
 
-export async function GET(request: Request) {
+export async function POST(request: Request) {
   const response = NextResponse.redirect(new URL("/login", request.url));
   response.cookies.set({
     name: SESSION_COOKIE_NAME,
@@ -13,4 +13,8 @@ export async function GET(request: Request) {
     maxAge: 0
   });
   return response;
+}
+
+export async function GET(request: Request) {
+  return NextResponse.redirect(new URL("/", request.url));
 }
