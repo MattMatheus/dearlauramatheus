@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import type { Route } from "next";
-import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -12,7 +11,6 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -22,19 +20,23 @@ export default function LoginPage() {
     const response = await fetch("/api/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      credentials: "same-origin",
       body: JSON.stringify({ password })
     });
 
     if (!response.ok) {
-      setError("Wrong password.");
+      if (response.status === 401) {
+        setError("Wrong password.");
+      } else {
+        setError("Login failed due to server configuration. Please try again.");
+      }
       setLoading(false);
       return;
     }
 
     const next = new URLSearchParams(window.location.search).get("next");
     const safeNext = next && next.startsWith("/") ? next : "/";
-    router.push(safeNext as Route);
-    router.refresh();
+    window.location.assign(safeNext as Route);
   }
 
   return (
