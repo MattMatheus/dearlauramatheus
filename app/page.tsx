@@ -32,98 +32,139 @@ export default async function HomePage() {
 
   return (
     <div className="space-y-4">
-      <section className="rounded-lg border border-primary/30 bg-white/80 p-4">
-        <h1 className="retro-title text-3xl font-bold text-primary">Laura&apos;s Valentine Profile</h1>
-        <p className="mt-1 text-sm text-muted-foreground">Last login: right now</p>
+      <section>
+        <h1 className="myspace-page-title">Hello, Laura!</h1>
+        <div className="myspace-info-line">
+          <p>
+            My URL: <span className="font-bold text-[#1f5cae]">myspace.com/laura</span>
+          </p>
+          <p>Last login: right now</p>
+        </div>
       </section>
 
-      <div className="grid gap-4 md:grid-cols-12">
-        <div className="space-y-4 md:col-span-3">
+      <div className="grid gap-4 lg:grid-cols-12">
+        <aside className="space-y-4 lg:col-span-3">
+          <div className="myspace-left-card">
+            <div className="myspace-avatar-box mb-3" />
+            <p className="font-bold">Profile Views: 1,102</p>
+            <p className="mb-3 font-bold">Last Login: 08/31/09</p>
+            <div className="space-y-1 text-[13px]">
+              <p>
+                Photos: <span className="font-semibold text-[#1f5cae]">Edit</span> |{" "}
+                <span className="font-semibold text-[#1f5cae]">Upload</span>
+              </p>
+              <p>
+                Videos: <span className="font-semibold text-[#1f5cae]">Edit</span> |{" "}
+                <span className="font-semibold text-[#1f5cae]">Upload</span>
+              </p>
+            </div>
+          </div>
+
+          <div className="myspace-alert">
+            <div className="myspace-alert-header">Alerts</div>
+            <div className="myspace-alert-body">
+              <span className="font-semibold text-[#1f5cae]">New videos!</span>
+            </div>
+          </div>
+
           <Card>
             <CardHeader>
-              <CardTitle className="text-base">Now Playing</CardTitle>
+              <CardTitle className="text-[15px]">My Apps</CardTitle>
             </CardHeader>
-            <CardContent>
-              <p className="font-semibold">&quot;Crazy For You&quot;</p>
-              <p className="text-sm text-muted-foreground">Madonna</p>
+            <CardContent className="space-y-2 text-[13px]">
+              <p>Super Secret Encoder</p>
+              <p>SuperPoke Pets</p>
+              <p>BuddyPoke</p>
+            </CardContent>
+          </Card>
+        </aside>
+
+        <section className="space-y-4 lg:col-span-6">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-[16px]">Status and Mood</CardTitle>
+            </CardHeader>
+            <CardContent className="p-0">
+              {latestPosts.map((post) => (
+                <div key={post.id} className="myspace-feed-item">
+                  <p className="mb-1 text-[17px] leading-snug">
+                    <Link href={`/posts/${post.id}`} className="font-bold text-[#1f5cae] hover:underline">
+                      {post.title}
+                    </Link>
+                  </p>
+                  <p className="text-xs text-muted-foreground">{post.createdAt.toLocaleString()}</p>
+                </div>
+              ))}
+              {latestPosts.length === 0 ? <p className="myspace-feed-item text-sm">No published posts yet.</p> : null}
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-base">Photos</CardTitle>
+              <CardTitle className="text-[16px]">About Me</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-2 gap-2 text-center text-xs font-semibold">
-                <div className="rounded border bg-secondary p-4">Photo 1</div>
-                <div className="rounded border bg-secondary p-4">Photo 2</div>
-                <div className="rounded border bg-secondary p-4">Photo 3</div>
-                <div className="rounded border bg-secondary p-4">Photo 4</div>
+              <p className="whitespace-pre-wrap text-[14px] leading-6">{data.about}</p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-[16px]">Blurbs</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="whitespace-pre-wrap text-[14px] leading-6">{data.blurbs}</p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-[16px]">Interests</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="whitespace-pre-wrap text-[14px] leading-6">{data.interests}</p>
+            </CardContent>
+          </Card>
+        </section>
+
+        <aside className="space-y-4 lg:col-span-3">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-[15px]">People You May Know</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4 text-[14px]">
+                <div>
+                  <p className="font-bold text-[#1f5cae]">Noah Lopez</p>
+                  <p className="text-muted-foreground">100 / male</p>
+                  <span className="font-semibold text-[#1f5cae]">Add to Friends</span>
+                </div>
+                <div>
+                  <p className="font-bold text-[#1f5cae]">Jorge Varona</p>
+                  <p className="text-muted-foreground">33 / male</p>
+                  <span className="font-semibold text-[#1f5cae]">Add to Friends</span>
+                </div>
+                <div>
+                  <p className="font-bold text-[#1f5cae]">Mitch Mcalister</p>
+                  <p className="text-muted-foreground">34 / male</p>
+                  <span className="font-semibold text-[#1f5cae]">Add to Friends</span>
+                </div>
               </div>
             </CardContent>
           </Card>
-        </div>
-
-        <div className="space-y-4 md:col-span-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>About Me</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="whitespace-pre-wrap">{data.about}</p>
-            </CardContent>
-          </Card>
 
           <Card>
             <CardHeader>
-              <CardTitle>Blurbs</CardTitle>
+              <CardTitle className="text-[15px]">Top 8</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="whitespace-pre-wrap">{data.blurbs}</p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Interests</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="whitespace-pre-wrap">{data.interests}</p>
-            </CardContent>
-          </Card>
-        </div>
-
-        <div className="space-y-4 md:col-span-3">
-          <Card>
-            <CardHeader>
-              <CardTitle>Top 8</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="whitespace-pre-wrap text-sm">{data.top8}</p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Latest Posts</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2 text-sm">
-                {latestPosts.map((post) => (
-                  <li key={post.id}>
-                    <Link href={`/posts/${post.id}`} className="font-semibold text-primary hover:underline">
-                      {post.title}
-                    </Link>
-                  </li>
-                ))}
-                {latestPosts.length === 0 ? <li>No published posts yet.</li> : null}
-              </ul>
-              <Link href="/posts" className="mt-3 inline-block text-sm font-semibold text-primary hover:underline">
+              <p className="whitespace-pre-wrap text-[13px] leading-5">{data.top8}</p>
+              <Link href="/posts" className="mt-3 inline-block text-sm font-semibold hover:underline">
                 View all posts
               </Link>
             </CardContent>
           </Card>
-        </div>
+        </aside>
       </div>
     </div>
   );

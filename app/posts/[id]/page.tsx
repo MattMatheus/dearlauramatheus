@@ -26,11 +26,11 @@ export default async function PostDetailPage({ params }: { params: Promise<{ id:
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-2xl">{post.title}</CardTitle>
+        <CardTitle className="text-[20px]">{post.title}</CardTitle>
         <p className="text-sm text-muted-foreground">{post.createdAt.toLocaleString()}</p>
       </CardHeader>
       <CardContent>
-        <article className="whitespace-pre-wrap">{post.body}</article>
+        <article className="whitespace-pre-wrap text-[14px] leading-7">{post.body}</article>
       </CardContent>
     </Card>
   );

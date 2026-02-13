@@ -3,22 +3,22 @@
 @tailwind utilities;
 
 :root {
-  --background: 35 73% 96%;
-  --foreground: 218 29% 15%;
+  --background: 210 17% 92%;
+  --foreground: 217 32% 20%;
   --card: 0 0% 100%;
   --card-foreground: 218 29% 15%;
-  --primary: 350 79% 49%;
+  --primary: 211 76% 44%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 198 100% 89%;
+  --secondary: 208 87% 83%;
   --secondary-foreground: 214 32% 16%;
-  --accent: 47 100% 75%;
+  --accent: 208 79% 62%;
   --accent-foreground: 214 32% 16%;
-  --muted: 35 58% 92%;
-  --muted-foreground: 215 13% 42%;
-  --border: 215 31% 78%;
-  --input: 214 32% 91%;
-  --ring: 350 79% 49%;
-  --radius: 0.75rem;
+  --muted: 210 28% 95%;
+  --muted-foreground: 217 14% 42%;
+  --border: 210 36% 74%;
+  --input: 210 25% 90%;
+  --ring: 211 76% 44%;
+  --radius: 0.2rem;
 }
 
 * {
@@ -27,13 +27,144 @@
 
 body {
   @apply bg-background text-foreground;
-  font-family: "Trebuchet MS", "Verdana", sans-serif;
-  background-image: radial-gradient(circle at top left, rgba(255, 182, 193, 0.35), transparent 35%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(255, 244, 229, 0.8));
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  background-image: linear-gradient(180deg, #f2f4f7, #dee5ee);
   min-height: 100vh;
+  font-size: 14px;
+}
+
+a {
+  color: #1f5cae;
+}
+
+a:hover {
+  color: #0e468d;
 }
 
 .retro-title {
-  font-family: "Courier New", monospace;
-  letter-spacing: 0.04em;
+  font-family: Tahoma, Verdana, Arial, sans-serif;
+  letter-spacing: 0.01em;
+}
+
+.myspace-header {
+  background: linear-gradient(180deg, #1f67bb, #0f4d99);
+  border-bottom: 1px solid #13498c;
+}
+
+.myspace-search {
+  width: min(420px, 55vw);
+  height: 32px;
+  border: 1px solid #2968af;
+  padding: 0 10px;
+  font-size: 13px;
+}
+
+.myspace-search-button {
+  height: 32px;
+  border: 1px solid #2968af;
+  background: linear-gradient(180deg, #f8fbfe, #dbe8f7);
+  color: #13498c;
+  padding: 0 14px;
+  font-weight: 700;
+}
+
+.myspace-tabs {
+  border-top: 1px solid rgb(255 255 255 / 20%);
+  background: linear-gradient(180deg, #2068bc, #1859a6);
+}
+
+.myspace-tab-link {
+  display: inline-block;
+  border-right: 1px solid rgb(255 255 255 / 28%);
+  padding: 10px 14px;
+  color: #fff;
+  font-size: 14px;
+  font-family: Tahoma, Verdana, Arial, sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.myspace-tab-link:hover {
+  background: rgb(255 255 255 / 12%);
+  color: #fff;
+}
+
+.myspace-canvas {
+  border: 1px solid #c8d3e2;
+  background: #f3f5f8;
+  padding: 12px;
+}
+
+.myspace-page-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #111b2d;
+}
+
+.myspace-info-line {
+  margin-top: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  border-bottom: 1px solid #cfd9e6;
+  padding-bottom: 8px;
+  color: #4b5d74;
+  font-size: 15px;
+}
+
+.myspace-card {
+  border: 1px solid #92b7de;
+  border-radius: 2px;
+  background: #fff;
+}
+
+.myspace-card-header {
+  border-bottom: 1px solid #85abd5;
+  background: linear-gradient(180deg, #8bbce8, #72a8d7);
+  color: #fff;
+  padding: 8px 10px;
+}
+
+.myspace-card-title {
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.myspace-left-card {
+  border: 1px solid #d6dde8;
+  background: #eceff4;
+  padding: 12px;
+}
+
+.myspace-avatar-box {
+  background: #fff;
+  border: 1px solid #b8c7da;
+  height: 180px;
+}
+
+.myspace-alert {
+  border: 1px solid #ce7c7c;
+  background: #fff;
+}
+
+.myspace-alert-header {
+  background: #dc7a72;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 8px 10px;
+}
+
+.myspace-alert-body {
+  padding: 10px;
+}
+
+.myspace-feed-item + .myspace-feed-item {
+  border-top: 1px solid #d2deec;
+}
+
+.myspace-feed-item {
+  padding: 11px 10px;
 }

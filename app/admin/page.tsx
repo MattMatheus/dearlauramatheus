@@ -21,11 +21,11 @@ export default async function AdminPage() {
 
   return (
     <div className="space-y-6">
-      <h1 className="retro-title text-3xl font-bold text-primary">Admin</h1>
+      <h1 className="myspace-page-title">Admin Control Panel</h1>
 
       <Card>
         <CardHeader>
-          <CardTitle>Create Post</CardTitle>
+          <CardTitle className="text-[18px]">Create Post</CardTitle>
         </CardHeader>
         <CardContent>
           <form action={createPostAction} className="space-y-3">
@@ -46,7 +46,7 @@ export default async function AdminPage() {
       </Card>
 
       <section className="space-y-4">
-        <h2 className="text-xl font-bold">Edit Posts</h2>
+        <h2 className="text-2xl font-bold text-[#1b4f95]">Edit Posts</h2>
         {posts.map((post) => (
           <Card key={post.id}>
             <CardContent className="pt-4">
@@ -82,11 +82,11 @@ export default async function AdminPage() {
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-xl font-bold">Profile Sections</h2>
+        <h2 className="text-2xl font-bold text-[#1b4f95]">Profile Sections</h2>
         {sections.map((section) => (
           <Card key={section.id}>
             <CardHeader>
-              <CardTitle className="capitalize">{section.key}</CardTitle>
+              <CardTitle className="text-[18px] capitalize">{section.key}</CardTitle>
             </CardHeader>
             <CardContent>
               <form action={updateProfileSectionAction} className="space-y-3">

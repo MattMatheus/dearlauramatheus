@@ -11,11 +11,14 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         className={cn(
-          "inline-flex h-10 items-center justify-center rounded-md px-4 text-sm font-semibold transition-colors disabled:pointer-events-none disabled:opacity-50",
-          variant === "default" && "bg-primary text-primary-foreground hover:opacity-90",
-          variant === "secondary" && "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-          variant === "destructive" && "bg-red-600 text-white hover:bg-red-500",
-          variant === "outline" && "border border-border bg-background hover:bg-muted",
+          "inline-flex h-9 items-center justify-center border px-4 text-[13px] font-bold transition-colors disabled:pointer-events-none disabled:opacity-50",
+          variant === "default" &&
+            "border-[#2968af] bg-gradient-to-b from-[#3d85d7] to-[#2369bb] text-white hover:from-[#498fdd] hover:to-[#2d74c6]",
+          variant === "secondary" &&
+            "border-[#6f9ccc] bg-gradient-to-b from-[#f8fbff] to-[#d8e7f8] text-[#1b4f95] hover:from-white hover:to-[#e1edfa]",
+          variant === "destructive" &&
+            "border-[#a74242] bg-gradient-to-b from-[#de7171] to-[#c55050] text-white hover:from-[#e17c7c] hover:to-[#ce5b5b]",
+          variant === "outline" && "border-[#9fb8d4] bg-white text-[#1b4f95] hover:bg-[#eef4fb]",
           className
         )}
         {...props}

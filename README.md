@@ -82,23 +82,19 @@ Open `http://localhost:3000/login` and sign in with `SITE_PASSWORD`.
    - `DATABASE_URL`
    - `SITE_PASSWORD`
    - `SESSION_SECRET`
-4. Configure Build Command (optional):
+4. Configure Build Command:
 
 ```bash
-npm run prisma:generate && npm run build
+npm run build:vercel
 ```
 
-5. Configure Vercel Post-Deploy / migrate step (recommended via CI or Vercel build hook):
-
-```bash
-npx prisma migrate deploy
-```
-
-6. (Optional) Seed production once:
+5. (Optional) Seed production once if needed:
 
 ```bash
 npm run prisma:seed
 ```
+
+`build:vercel` runs `prisma db push` and `prisma db seed` before `next build`, so schema and baseline data stay in sync on deploy.
 
 ## Milestone Mapping
 

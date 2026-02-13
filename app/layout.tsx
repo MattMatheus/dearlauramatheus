@@ -11,22 +11,43 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <header className="border-b border-border bg-white/85 backdrop-blur">
-          <div className="container flex items-center justify-between gap-4 py-3">
-            <Link href="/" className="retro-title text-xl font-bold text-primary">
-              My Valentine Space
+        <header className="myspace-header">
+          <div className="container flex flex-wrap items-center justify-between gap-4 py-3">
+            <Link href="/" className="text-4xl font-black tracking-tight text-white">
+              myspace
             </Link>
-            <nav className="flex items-center gap-4 text-sm font-semibold">
-              <Link href="/">Profile</Link>
-              <Link href="/posts">Posts</Link>
-              <Link href="/admin">Admin</Link>
-              <Link href="/logout" className="text-primary">
-                Logout
+            <div className="flex items-center gap-2">
+              <input className="myspace-search" type="text" placeholder="Search profiles and posts" />
+              <button className="myspace-search-button" type="button">
+                Search
+              </button>
+            </div>
+          </div>
+          <div className="myspace-tabs">
+            <div className="container flex flex-wrap items-center justify-between gap-3">
+              <nav className="flex flex-wrap items-center">
+                <Link href="/" className="myspace-tab-link">
+                  Home
+                </Link>
+                <Link href="/posts" className="myspace-tab-link">
+                  Bulletins
+                </Link>
+                <Link href="/" className="myspace-tab-link">
+                  Profile
+                </Link>
+                <Link href="/admin" className="myspace-tab-link">
+                  Admin
+                </Link>
+              </nav>
+              <Link href="/logout" className="myspace-tab-link">
+                Sign Out
               </Link>
-            </nav>
+            </div>
           </div>
         </header>
-        <main className="container py-6">{children}</main>
+        <main className="container py-6">
+          <div className="myspace-canvas">{children}</div>
+        </main>
       </body>
     </html>
   );

@@ -40,10 +40,10 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="mx-auto mt-20 max-w-md">
+    <div className="mx-auto mt-16 max-w-md">
       <Card>
         <CardHeader>
-          <CardTitle className="retro-title text-2xl text-primary">Private Login</CardTitle>
+          <CardTitle className="text-[20px]">Private Login</CardTitle>
         </CardHeader>
         <CardContent>
           <form onSubmit={onSubmit} className="space-y-4">
