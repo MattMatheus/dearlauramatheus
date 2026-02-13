@@ -28,7 +28,7 @@ export default async function AdminPage() {
           <CardTitle className="text-[18px]">Create Post</CardTitle>
         </CardHeader>
         <CardContent>
-          <form action={createPostAction} className="space-y-3">
+          <form action={createPostAction} encType="multipart/form-data" className="space-y-3">
             <div className="space-y-1">
               <Label htmlFor="new-title">Title</Label>
               <Input id="new-title" name="title" required />
@@ -36,6 +36,14 @@ export default async function AdminPage() {
             <div className="space-y-1">
               <Label htmlFor="new-body">Body</Label>
               <Textarea id="new-body" name="body" required />
+            </div>
+            <div className="space-y-1">
+              <Label htmlFor="new-image">Photo</Label>
+              <Input id="new-image" name="image" type="file" accept="image/*" />
+            </div>
+            <div className="space-y-1">
+              <Label htmlFor="new-image-alt">Photo Alt Text</Label>
+              <Input id="new-image-alt" name="imageAlt" placeholder="Optional (defaults to title)" />
             </div>
             <label className="flex items-center gap-2 text-sm">
               <input name="published" type="checkbox" defaultChecked className="size-4" /> Published
@@ -50,7 +58,7 @@ export default async function AdminPage() {
         {posts.map((post) => (
           <Card key={post.id}>
             <CardContent className="pt-4">
-              <form action={updatePostAction} className="space-y-3">
+              <form action={updatePostAction} encType="multipart/form-data" className="space-y-3">
                 <input type="hidden" name="id" value={post.id} />
                 <div className="space-y-1">
                   <Label>Title</Label>
@@ -60,6 +68,28 @@ export default async function AdminPage() {
                   <Label>Body</Label>
                   <Textarea name="body" defaultValue={post.body} required />
                 </div>
+                <div className="space-y-1">
+                  <Label>Replace Photo</Label>
+                  <Input name="image" type="file" accept="image/*" />
+                </div>
+                <div className="space-y-1">
+                  <Label>Photo Alt Text</Label>
+                  <Input name="imageAlt" defaultValue={post.imageAlt ?? ""} placeholder="Optional (defaults to title)" />
+                </div>
+                {post.imageUrl ? (
+                  <>
+                    <p className="text-xs text-muted-foreground">
+                      Current photo:{" "}
+                      <a href={post.imageUrl} target="_blank" rel="noreferrer" className="font-semibold hover:underline">
+                        {post.imageUrl}
+                      </a>
+                    </p>
+                    <label className="flex items-center gap-2 text-sm">
+                      <input name="removeImage" type="checkbox" className="size-4" />
+                      Remove current photo
+                    </label>
+                  </>
+                ) : null}
                 <label className="flex items-center gap-2 text-sm">
                   <input name="published" type="checkbox" defaultChecked={post.published} className="size-4" />
                   Published

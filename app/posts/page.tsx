@@ -1,5 +1,6 @@
 export const dynamic = "force-dynamic";
 
+import Image from "next/image";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -23,7 +24,16 @@ export default async function PostsPage() {
             </CardTitle>
             <p className="text-xs text-muted-foreground">{post.createdAt.toLocaleString()}</p>
           </CardHeader>
-          <CardContent>
+          <CardContent className="space-y-3">
+            {post.imageUrl ? (
+              <Image
+                src={post.imageUrl}
+                alt={post.imageAlt ?? post.title}
+                width={1200}
+                height={800}
+                className="h-auto w-full rounded-md border border-[#b7d0ef]"
+              />
+            ) : null}
             <p className="line-clamp-3 whitespace-pre-wrap text-[14px] leading-6">{post.body}</p>
           </CardContent>
         </Card>

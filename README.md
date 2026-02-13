@@ -18,6 +18,7 @@ Next.js App Router + TypeScript app with Tailwind + shadcn-style UI, Prisma + Po
 - Profile page with MySpace-style sections and widgets
 - Published posts listing and detail pages
 - Admin CRUD for posts and profile sections
+- Optional photo uploads for posts (with alt text), rendered on list/detail pages
 
 ## Required Environment Variables
 
@@ -26,6 +27,9 @@ Create `.env` (or `.env.local`) from `.env.example`:
 - `DATABASE_URL`: Neon/Postgres connection string
 - `SITE_PASSWORD`: shared password for login
 - `SESSION_SECRET`: secret used to derive signed session token
+- `AZURE_STORAGE_CONNECTION_STRING`: Azure Storage account connection string
+- `AZURE_STORAGE_CONTAINER_NAME`: Blob container for uploaded post images
+- `AZURE_POST_IMAGE_PREFIX` (optional): blob key prefix for post images (defaults to `posts`)
 
 ## Local Development
 
@@ -95,6 +99,14 @@ npm run prisma:seed
 ```
 
 `build:vercel` runs `prisma db push` and `prisma db seed` before `next build`, so schema and baseline data stay in sync on deploy.
+
+### Uploaded Post Photos
+
+- Post photos uploaded in admin are stored in Azure Blob Storage.
+- Uploads use `AZURE_STORAGE_CONTAINER_NAME` and `AZURE_POST_IMAGE_PREFIX` for blob placement.
+- If you replace or delete a post photo, the previous blob is cleaned up automatically.
+- Existing legacy local URLs (`/uploads/posts/...`) are still cleaned up if encountered.
+- Set the container access level to allow blob reads so image URLs can render in the app.
 
 ## Milestone Mapping
 
