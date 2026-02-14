@@ -59,19 +59,19 @@ export const siteContent: SiteContent = {
     {
       title: "Wedding Reception",
       date: "July 2006",
-      body: "Still grateful that you chose me.  We were such babies!!",
+      body: "Still grateful that you chose me.  We were such babies!!  And look, it's the grandma everyone hates!",
       imageUrl: "https://dearlauramatheus.blob.core.windows.net/images/reception.jpeg?sp=r&st=2026-02-14T02:28:00Z&se=2026-03-31T08:43:00Z&spr=https&sv=2024-11-04&sr=b&sig=BsHG1W8FBmWEgCr3Nwyiu9qiHg3erT5onIEF51YrT20%3D"
     },
     {
       title: "DC",
       date: "November 2025",
-      body: "Everywhere we go I have everything I need.  No matter what happens, you are my rock and my best friend",
+      body: "Everywhere we go I have everything I need.  No matter what happens, you are my rock and my best friend... from any angle.",
       imageUrl: "https://dearlauramatheus.blob.core.windows.net/images/dc.jpeg?sp=r&st=2026-02-14T02:29:31Z&se=2026-03-31T08:44:31Z&spr=https&sv=2024-11-04&sr=b&sig=omKC3Ehh%2FjQ7Md8kaNw22D2BRoQ8Cca9FItEKi0i1Vo%3D"
     },
     {
       title: "The reason I love you",
       date: "November 2025",
-      body: "I love this picture of you.  Just how happy your face is and how much you love and care for every living thing.",
+      body: "I love this picture of you.  Just how happy your face is and how much you love and care for every living thing.  I would take you to every zoo ever in the whole world because I love you!",
       imageUrl: "https://dearlauramatheus.blob.core.windows.net/images/love.jpeg?sp=r&st=2026-02-14T02:30:44Z&se=2026-02-14T10:45:44Z&spr=https&sv=2024-11-04&sr=b&sig=sk0SNSErmAIaAT9GZZHhqv96A%2BZwPnWlVLJ3qrK%2F%2FjE%3D"
     }
   ],
