@@ -3,7 +3,7 @@ import Link from "next/link";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Private Valentine Site",
+  title: "Happy Valentine's Day",
   description: "A private MySpace-to-Zillow Valentine site"
 };
 
