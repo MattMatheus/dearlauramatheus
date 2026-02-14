@@ -339,37 +339,37 @@ a {
   background: #e5ecf6;
 }
 
-.zillow-tiles {
+.zillow-note-wrap {
   margin-top: 1rem;
-  display: grid;
-  gap: 0.75rem;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-
-.zillow-tile {
-  overflow: hidden;
   border: 1px solid #d7e1ee;
   border-radius: 12px;
   background: #fff;
+  padding: 0.75rem;
 }
 
-.zillow-tile-image {
+.zillow-note-label {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: #2d425f;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.zillow-note-box {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
+  resize: vertical;
+  border: 1px solid #c7d6ea;
+  border-radius: 10px;
+  padding: 0.65rem 0.7rem;
+  font: inherit;
+  line-height: 1.45;
+  color: #1f2d42;
+  background: #fbfdff;
 }
 
-.zillow-tile-price {
-  margin: 0.55rem 0.75rem 0;
-  color: #111827;
-  font-size: 1.05rem;
-  font-weight: 800;
-}
-
-.zillow-tile-address {
-  margin: 0.15rem 0.75rem 0.75rem;
-  color: #465a77;
-  font-size: 0.84rem;
+.zillow-note-box:focus {
+  outline: 2px solid #99beed;
+  outline-offset: 0;
 }
 
 .zillow-topbar {
@@ -442,17 +442,5 @@ body:has(.zillow-shell) .site-main {
     top: 66px;
     height: calc(100vh - 66px);
     border-top: 0;
-  }
-}
-
-@media (min-width: 760px) {
-  .zillow-tiles {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 1160px) {
-  .zillow-tiles {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }

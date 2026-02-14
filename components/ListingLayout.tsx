@@ -27,15 +27,17 @@ export function ListingLayout({ listing }: ListingLayoutProps) {
             <p className="zillow-results-sub">{listing.address}</p>
           </div>
           <ListingCard listing={listing} />
-          <div className="zillow-tiles" aria-label="More photos">
-            {listing.photos.map((photo, index) => (
-              <article key={photo} className="zillow-tile">
-                <img src={photo} alt={`Photo ${index + 1}`} className="zillow-tile-image" />
-                <p className="zillow-tile-price">{listing.price}</p>
-                <p className="zillow-tile-address">{listing.address}</p>
-              </article>
-            ))}
-          </div>
+          <section className="zillow-note-wrap" aria-label="Personal note">
+            <label htmlFor="zillow-note" className="zillow-note-label">
+              {listing.noteLabel}
+            </label>
+            <textarea
+              id="zillow-note"
+              className="zillow-note-box"
+              rows={7}
+              placeholder={listing.notePlaceholder}
+            />
+          </section>
         </div>
 
         <div className="zillow-map-pane">
