@@ -80,12 +80,12 @@ export const siteContent: SiteContent = {
     baths: "3",
     sqft: "2,450",
     description:
-      "Welcome to our dream home listing: bright mornings, cozy nights, and enough wall space for every framed memory.",
+      "From an Old Lady House, to the home we've made today.  I love you, now and forever.  And I even got you flowers (see photo)",
     mapImageUrl: "https://dearlauramatheus.blob.core.windows.net/images/map.png?sp=r&st=2026-02-14T02:32:33Z&se=2026-02-14T10:47:33Z&spr=https&sv=2024-11-04&sr=b&sig=vw128ZtP%2FjdewzJE6A73ih3SXJFJeP9cysKsoojjIdI%3D",
     photos: [
-      "https://youraccount.blob.core.windows.net/valentine/listing-1.jpg",
-      "https://youraccount.blob.core.windows.net/valentine/listing-2.jpg",
-      "https://youraccount.blob.core.windows.net/valentine/listing-3.jpg"
+      "https://dearlauramatheus.blob.core.windows.net/images/oldladyhouse.jpeg?sp=r&st=2026-02-14T02:35:21Z&se=2026-03-31T08:50:21Z&spr=https&sv=2024-11-04&sr=b&sig=1CU3U2%2Bwn7%2F%2Br%2Fz2%2Fg1lj3f6d8kKFwiwZv%2BxypTccxQ%3D",
+      "https://dearlauramatheus.blob.core.windows.net/images/ours.jpeg?sp=r&st=2026-02-14T02:35:49Z&se=2026-03-31T08:50:49Z&spr=https&sv=2024-11-04&sr=b&sig=JGVzqDsPh3usRtAZeEzzEuwy2cxcYbooD%2F1%2F4YIPoOg%3D",
+      "https://dearlauramatheus.blob.core.windows.net/images/flowers.jpeg?sp=r&st=2026-02-14T02:36:10Z&se=2026-03-31T08:51:10Z&spr=https&sv=2024-11-04&sr=b&sig=1tG0Cwn%2BtNgC%2F42B2lLTez8IQW1igADmOzqtjkQBYT0%3D"
     ]
   }
 };
