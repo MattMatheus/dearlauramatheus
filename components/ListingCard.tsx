@@ -7,6 +7,10 @@ type ListingCardProps = {
 export function ListingCard({ listing }: ListingCardProps) {
   return (
     <article className="listing-card">
+      <div className="listing-status-row">
+        <span className="listing-chip">For Sale</span>
+        <span className="listing-chip listing-chip-muted">Est. payment available</span>
+      </div>
       <p className="listing-price">{listing.price}</p>
       <p className="listing-address">{listing.address}</p>
       <div className="listing-meta">

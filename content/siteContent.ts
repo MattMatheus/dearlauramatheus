@@ -43,45 +43,45 @@ export const siteContent: SiteContent = {
     listingLinkText: "From MySpace to..."
   },
   myspaceProfile: {
-    displayName: "Laura + Matheus",
-    headline: "Taken forever. Publicly obsessed.",
-    location: "Austin, TX",
-    tagline: "This page is under heavy construction and heavy love.",
+    displayName: "Laura Matheus",
+    headline: "Taken forever. ",
+    location: "Fernley, NV",
+    tagline: "Hahaha...snort",
     about:
-      "I made this little corner of the internet to keep our favorite moments in one place. Every photo here is a memory and every post is another reason I love you.",
-    interests: "Road trips, late-night snacks, dancing in the kitchen, and choosing each other every day.",
-    top8: ["Laura", "Matheus", "Future Dog", "Our Playlist", "Sundays", "Tacos", "Sunsets", "Forever"],
-    profileImageUrl: "https://youraccount.blob.core.windows.net/valentine/profile.jpg"
+      "I made this little corner of the internet for you, love bug.",
+    interests: "Top Gear, Gaming, dancing in the kitchen, and choosing each other every day.",
+    top8: ["Rhonda", "Bert", "Matt M", "Tarah", "Katie", "Jerilee", "James May", "Moira Rose"],
+    profileImageUrl: "https://dearlauramatheus.blob.core.windows.net/images/profile.jpeg?sp=r&st=2026-02-14T02:26:27Z&se=2026-03-31T08:41:27Z&spr=https&sv=2024-11-04&sr=b&sig=Fy%2BMBZXNrI0KBKMLKlQzYAnRro8PfZRHq5kWN26QK6g%3D"
   },
   posts: [
     {
-      title: "First Date Energy",
-      date: "February 14, 2026",
-      body: "Still not over how easy it felt from the first hello. Same laugh, same spark, same best decision.",
-      imageUrl: "https://youraccount.blob.core.windows.net/valentine/post-1.jpg"
+      title: "Wedding Reception",
+      date: "July 2006",
+      body: "Still grateful that you chose me.  We were such babies!!",
+      imageUrl: "https://dearlauramatheus.blob.core.windows.net/images/reception.jpeg?sp=r&st=2026-02-14T02:28:00Z&se=2026-03-31T08:43:00Z&spr=https&sv=2024-11-04&sr=b&sig=BsHG1W8FBmWEgCr3Nwyiu9qiHg3erT5onIEF51YrT20%3D"
     },
     {
-      title: "Home Is You",
-      date: "February 14, 2026",
-      body: "Everywhere we go turns into home because you are there. That is the whole post.",
-      imageUrl: "https://youraccount.blob.core.windows.net/valentine/post-2.jpg"
+      title: "DC",
+      date: "November 2025",
+      body: "Everywhere we go I have everything I need.  No matter what happens, you are my rock and my best friend",
+      imageUrl: "https://dearlauramatheus.blob.core.windows.net/images/dc.jpeg?sp=r&st=2026-02-14T02:29:31Z&se=2026-03-31T08:44:31Z&spr=https&sv=2024-11-04&sr=b&sig=omKC3Ehh%2FjQ7Md8kaNw22D2BRoQ8Cca9FItEKi0i1Vo%3D"
     },
     {
-      title: "Valentine Forever Plan",
-      date: "February 14, 2026",
-      body: "Plan is simple: keep laughing, keep building, keep loving each other on purpose, every single day.",
-      imageUrl: "https://youraccount.blob.core.windows.net/valentine/post-3.jpg"
+      title: "The reason I love you",
+      date: "November 2025",
+      body: "I love this picture of you.  Just how happy your face is and how much you love and care for every living thing.",
+      imageUrl: "https://dearlauramatheus.blob.core.windows.net/images/love.jpeg?sp=r&st=2026-02-14T02:30:44Z&se=2026-02-14T10:45:44Z&spr=https&sv=2024-11-04&sr=b&sig=sk0SNSErmAIaAT9GZZHhqv96A%2BZwPnWlVLJ3qrK%2F%2FjE%3D"
     }
   ],
   listing: {
-    address: "123 Forever Lane, Austin, TX",
-    price: "$1,401,214",
+    address: "200 Quail Run Rd, Fernley, NV 89408",
+    price: "$565,000",
     beds: "3",
-    baths: "2.5",
-    sqft: "2,426",
+    baths: "3",
+    sqft: "2,450",
     description:
       "Welcome to our dream home listing: bright mornings, cozy nights, and enough wall space for every framed memory.",
-    mapImageUrl: "https://youraccount.blob.core.windows.net/valentine/map.jpg",
+    mapImageUrl: "https://dearlauramatheus.blob.core.windows.net/images/map.png?sp=r&st=2026-02-14T02:32:33Z&se=2026-02-14T10:47:33Z&spr=https&sv=2024-11-04&sr=b&sig=vw128ZtP%2FjdewzJE6A73ih3SXJFJeP9cysKsoojjIdI%3D",
     photos: [
       "https://youraccount.blob.core.windows.net/valentine/listing-1.jpg",
       "https://youraccount.blob.core.windows.net/valentine/listing-2.jpg",
