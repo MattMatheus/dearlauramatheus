@@ -1,14 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import type { Route } from "next";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
 
 export default function LoginPage() {
-  const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -17,53 +11,36 @@ export default function LoginPage() {
     setLoading(true);
     setError(null);
 
+    const form = new FormData(event.currentTarget);
     const response = await fetch("/api/login", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      credentials: "same-origin",
-      body: JSON.stringify({ password })
+      body: form,
+      credentials: "same-origin"
     });
 
     if (!response.ok) {
-      if (response.status === 401) {
-        setError("Wrong password.");
-      } else {
-        setError("Login failed due to server configuration. Please try again.");
-      }
+      setError("Wrong password.");
       setLoading(false);
       return;
     }
 
-    const next = new URLSearchParams(window.location.search).get("next");
-    const safeNext = next && next.startsWith("/") ? next : "/";
-    window.location.assign(safeNext as Route);
+    window.location.assign("/");
   }
 
   return (
-    <div className="mx-auto mt-16 max-w-md">
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-[20px]">Private Login</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={onSubmit} className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="password">Shared Password</Label>
-              <Input
-                id="password"
-                type="password"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-                required
-              />
-            </div>
-            {error ? <p className="text-sm font-semibold text-red-600">{error}</p> : null}
-            <Button disabled={loading} type="submit" className="w-full">
-              {loading ? "Signing in..." : "Enter"}
-            </Button>
-          </form>
-        </CardContent>
-      </Card>
+    <div className="login-shell">
+      <div className="login-card">
+        <h1 className="login-title">myspace login</h1>
+        <p className="login-subtitle">Sign in to view this private Valentine page.</p>
+        <form onSubmit={onSubmit} className="login-form">
+          <label htmlFor="password">Shared password</label>
+          <input id="password" name="password" type="password" required className="login-input" />
+          {error ? <p className="login-error">{error}</p> : null}
+          <button type="submit" className="login-button" disabled={loading}>
+            {loading ? "Signing in..." : "Sign in"}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

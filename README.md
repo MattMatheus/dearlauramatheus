@@ -1,115 +1,54 @@
-# Private MySpace-Inspired Valentine Site
+# Private Valentine Site (Next.js + Tailwind)
 
-Next.js App Router + TypeScript app with Tailwind + shadcn-style UI, Prisma + Postgres (Neon), and simple private auth using a shared password.
+Super-simple private Valentine site using Next.js App Router + TypeScript + Tailwind.
 
-## Stack
+## What It Includes
 
-- Next.js (App Router) + TypeScript
-- Tailwind CSS + shadcn-style reusable UI components
-- Prisma + Postgres (Neon)
-- Server Actions for admin CRUD
+- Shared-password login page at `/login`
+- Auth middleware for all routes except `/login`, `/api/login`, and static assets
+- Cookie session signed with `SESSION_SECRET`
+- Home page (`/`) with MySpace-style layout and exactly 3 static posts
+- Listing page (`/listing`) with map image, listing card, and 3 photos
+- Logout route at `/logout`
+- Single content source: `content/siteContent.ts`
 
-## Features
+## Required Env Vars
 
-- Entire site is private behind shared-password login
-- Cookie-based auth using signed session value (HMAC SHA-256)
-- Public routes: `/login`, `/api/login`
-- Protected routes: everything else (`/`, `/posts`, `/posts/[id]`, `/admin`, `/logout`)
-- Profile page with MySpace-style sections and widgets
-- Published posts listing and detail pages
-- Admin CRUD for posts and profile sections
-- Optional photo uploads for posts (with alt text), rendered on list/detail pages
+Create `.env.local` from `.env.example`:
 
-## Required Environment Variables
+- `SITE_PASSWORD`
+- `SESSION_SECRET`
 
-Create `.env` (or `.env.local`) from `.env.example`:
-
-- `DATABASE_URL`: Neon/Postgres connection string
-- `SITE_PASSWORD`: shared password for login
-- `SESSION_SECRET`: secret used to derive signed session token
-- `AZURE_STORAGE_CONNECTION_STRING`: Azure Storage account connection string
-- `AZURE_STORAGE_CONTAINER_NAME`: Blob container for uploaded post images
-- `AZURE_POST_IMAGE_PREFIX` (optional): blob key prefix for post images (defaults to `posts`)
-
-## Local Development
-
-1. Install dependencies:
+## Run Locally
 
 ```bash
 npm install
-```
-
-2. Generate Prisma client:
-
-```bash
-npm run prisma:generate
-```
-
-3. Run migrations:
-
-```bash
-npm run prisma:migrate -- --name init
-```
-
-4. Seed starter data:
-
-```bash
-npm run prisma:seed
-```
-
-5. Start dev server:
-
-```bash
 npm run dev
 ```
 
-Open `http://localhost:3000/login` and sign in with `SITE_PASSWORD`.
+Then open [http://localhost:3000/login](http://localhost:3000/login).
 
-## Auth Design
+## Auth Format
 
-- `POST /api/login` compares submitted password with `process.env.SITE_PASSWORD`
-- If valid, server sets cookie `valentine_session`
-- Cookie value is stable derivation:
-  - `HMAC_SHA256(SESSION_SECRET, SITE_PASSWORD)`
-- Middleware recomputes that value and compares against cookie with timing-safe comparison
-- Cookie flags:
-  - `httpOnly: true`
-  - `sameSite: "lax"`
-  - `secure: true` in production
-- `POST /logout` clears cookie and redirects to `/login` (`GET /logout` redirects to `/`)
+- Cookie name: `auth`
+- Payload: `v1`
+- Signature message: `payload + ":" + SITE_PASSWORD`
+- Signature: `HMAC_SHA256(SESSION_SECRET, message)` (hex)
+- Cookie value: `payload.sig`
 
-## Deploy (Vercel + Neon)
+## Content Editing
 
-1. Push repo to GitHub.
-2. Create Neon Postgres project, copy pooled connection string to `DATABASE_URL`.
-3. In Vercel project settings, set env vars:
-   - `DATABASE_URL`
-   - `SITE_PASSWORD`
-   - `SESSION_SECRET`
-4. Configure Build Command:
+Edit `content/siteContent.ts`:
 
-```bash
-npm run build:vercel
-```
+- MySpace profile strings
+- `posts` (exactly 3): `title`, optional `date`, `body`, `imageUrl`
+- `listing`: `address`, `price`, `beds`, `baths`, `sqft`, `description`, `mapImageUrl`, `photos[3]`
 
-5. (Optional) Seed production once if needed:
+## Azure Blob URLs
 
-```bash
-npm run prisma:seed
-```
+Use either of these in `content/siteContent.ts` image fields:
 
-`build:vercel` runs `prisma db push` and `prisma db seed` before `next build`, so schema and baseline data stay in sync on deploy.
+- Public blob URLs
+- SAS URLs (time-limited)
 
-### Uploaded Post Photos
-
-- Post photos uploaded in admin are stored in Azure Blob Storage.
-- Uploads use `AZURE_STORAGE_CONTAINER_NAME` and `AZURE_POST_IMAGE_PREFIX` for blob placement.
-- If you replace or delete a post photo, the previous blob is cleaned up automatically.
-- Existing legacy local URLs (`/uploads/posts/...`) are still cleaned up if encountered.
-- Set the container access level to allow blob reads so image URLs can render in the app.
-
-## Milestone Mapping
-
-- M1 complete: scaffold, auth middleware/session, seed data, `/` and `/posts`
-- M2 complete: admin CRUD for posts with Server Actions
-- M3 complete: admin editor for `ProfileSection` with Server Actions
+If you use SAS URLs, keep in mind they expire and images will stop loading when tokens expire.

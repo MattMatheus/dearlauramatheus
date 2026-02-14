@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
-import { SESSION_COOKIE_NAME } from "@/lib/auth";
+import { AUTH_COOKIE_NAME } from "@/lib/auth";
 
-export async function POST(request: Request) {
+function buildLogoutResponse(request: Request) {
   const response = NextResponse.redirect(new URL("/login", request.url));
   response.cookies.set({
-    name: SESSION_COOKIE_NAME,
+    name: AUTH_COOKIE_NAME,
     value: "",
     path: "/",
     httpOnly: true,
@@ -16,5 +16,9 @@ export async function POST(request: Request) {
 }
 
 export async function GET(request: Request) {
-  return NextResponse.redirect(new URL("/", request.url));
+  return buildLogoutResponse(request);
+}
+
+export async function POST(request: Request) {
+  return buildLogoutResponse(request);
 }
