@@ -72,7 +72,7 @@ export const siteContent: SiteContent = {
       title: "The reason I love you",
       date: "November 2025",
       body: "I love this picture of you.  Just how happy your face is and how much you love and care for every living thing.  I would take you to every zoo ever in the whole world because I love you!",
-      imageUrl: "https://dearlauramatheus.blob.core.windows.net/images/love.jpeg?sp=r&st=2026-02-14T02:30:44Z&se=2026-02-14T10:45:44Z&spr=https&sv=2024-11-04&sr=b&sig=sk0SNSErmAIaAT9GZZHhqv96A%2BZwPnWlVLJ3qrK%2F%2FjE%3D"
+      imageUrl: "https://dearlauramatheus.blob.core.windows.net/images/love.jpeg?sp=r&st=2026-02-19T15:03:47Z&se=2026-03-31T22:18:47Z&spr=https&sv=2024-11-04&sr=b&sig=Xk3qKHH5wK9i7E2njqIWrCvCELXRhXXFrgIeRMj%2ByqQ%3D"
     }
   ],
   listing: {
@@ -83,7 +83,7 @@ export const siteContent: SiteContent = {
     sqft: "2,450",
     description:
       "From an Old Lady House, to the home we've made today.  I love you, now and forever.  And I even got you flowers (see photo)",
-    mapImageUrl: "https://dearlauramatheus.blob.core.windows.net/images/map.png?sp=r&st=2026-02-14T02:32:33Z&se=2026-02-14T10:47:33Z&spr=https&sv=2024-11-04&sr=b&sig=vw128ZtP%2FjdewzJE6A73ih3SXJFJeP9cysKsoojjIdI%3D",
+    mapImageUrl: "https://dearlauramatheus.blob.core.windows.net/images/map.png?sp=r&st=2026-02-19T15:04:26Z&se=2026-03-31T22:19:26Z&spr=https&sv=2024-11-04&sr=b&sig=pNwk1P0Y9Tsw%2B0g1A0sOmB7IZY4m97Fsv%2B4WpXG%2BK6c%3D",
     photos: [
       "https://dearlauramatheus.blob.core.windows.net/images/oldladyhouse.jpeg?sp=r&st=2026-02-14T02:35:21Z&se=2026-03-31T08:50:21Z&spr=https&sv=2024-11-04&sr=b&sig=1CU3U2%2Bwn7%2F%2Br%2Fz2%2Fg1lj3f6d8kKFwiwZv%2BxypTccxQ%3D",
       "https://dearlauramatheus.blob.core.windows.net/images/ours.jpeg?sp=r&st=2026-02-14T02:35:49Z&se=2026-03-31T08:50:49Z&spr=https&sv=2024-11-04&sr=b&sig=JGVzqDsPh3usRtAZeEzzEuwy2cxcYbooD%2F1%2F4YIPoOg%3D",
